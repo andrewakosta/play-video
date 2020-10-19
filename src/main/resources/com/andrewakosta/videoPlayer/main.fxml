@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewakosta.videoPlayer.Main">
-<Label>Hello world, Here we going again...!</Label>
-   <Accordion layoutX="80.0" layoutY="133.0" />
-   <Button fx:id="uno" layoutX="144.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#clickOnUno" prefHeight="47.0" prefWidth="313.0" styleClass="btn-primary" text="Go Ahed...!" textFill="#b8309d" />
-</AnchorPane>
+<GridPane fx:id="gridPaneMain" prefHeight="439.0" prefWidth="674.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewakosta.videoPlayer.Main">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1000.0" minWidth="10.0" prefWidth="117.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1000.0" minWidth="10.0" prefWidth="309.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1000.0" minWidth="10.0" prefWidth="148.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1000.0" minWidth="10.0" prefWidth="117.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <TextField fx:id="seeker" alignment="CENTER" prefHeight="32.0" prefWidth="299.0" styleClass="chooser" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </TextField>
+      <Button minWidth="42.0" mnemonicParsing="false" onMouseClicked="#handleBtnSearchVideos" prefHeight="32.0" prefWidth="59.0" style="-fx-background-color: transparent;" text="..." textFill="#a46d93" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="goToVideosView" mnemonicParsing="false" onMouseClicked="#goToVideosView" prefHeight="32.0" prefWidth="126.0" styleClass="btn-primary" text="Go...!" textFill="#e135b6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="12.0" right="12.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</GridPane>
