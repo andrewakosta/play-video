@@ -1,0 +1,9 @@
+.root{
+   -fx-background-color:white;
+}
+.btn-primary{
+    -fx-background-color:yellow;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
+
+}
