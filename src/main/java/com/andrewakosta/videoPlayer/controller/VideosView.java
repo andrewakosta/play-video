@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 
 import java.io.File;
@@ -80,6 +81,23 @@ public class VideosView  {
         pane.setPrefSize(paneSize, paneSize);
         pane.getChildren().add(new Label(videoName));
         pane.getStyleClass().add("video-pane");
+        pane.setOnMouseClicked(event -> {
+            playVideo(videoName);
+        });
         return  pane;
+    }
+
+    void playVideo(String video){
+        Player player = new Player(video);
+        Stage stage = new Stage();
+        try {
+            player.start(stage);
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText(e.getMessage());
+            System.out.println(e.getMessage());
+            alert.showAndWait();
+        }
     }
 }

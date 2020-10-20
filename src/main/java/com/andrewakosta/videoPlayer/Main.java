@@ -1,7 +1,6 @@
 package com.andrewakosta.videoPlayer;
 
 import com.andrewakosta.videoPlayer.controller.VideosView;
-import com.andrewakosta.videoPlayer.utilities.MainUtilities;
 import com.andrewakosta.videoPlayer.utilities.Properties;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -9,8 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
+
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;

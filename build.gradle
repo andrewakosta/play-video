@@ -15,12 +15,10 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'uk.co.caprica', name: 'vlcj', version: '4.7.0'
-
 }
 
 javafx {
-    modules = [ 'javafx.controls', 'javafx.fxml']
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.media' ]
     version = '11.0.2'
 }
 
