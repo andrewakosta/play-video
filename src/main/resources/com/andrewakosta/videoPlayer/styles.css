@@ -1,0 +1,28 @@
+.root{
+   -fx-background-color:#1f1f26;
+}
+.btn-primary{
+    -fx-background-color:#5c0f73;
+    -fx-border-radius: 8 8 8 8;
+    -fx-background-radius: 8 8 8 8;
+
+}
+.btn-primary:hover{
+    -fx-background-color:#420957;
+}
+
+.chooser{
+    -fx-background-color:#28282F;
+     -fx-text-fill:#b093ba;
+}
+
+.video-pane{
+        -fx-background-color: #fff;
+        -fx-background-radius: 8 8 8 8;
+}
+.video-pane:hover{
+        -fx-scale-x: 1.1;
+        -fx-scale-y: 1.1;
+        -fx-scale-z: 1.1;
+        -fx-cursor:hand;
+}
