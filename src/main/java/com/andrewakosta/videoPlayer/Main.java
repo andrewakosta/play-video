@@ -1,12 +1,16 @@
 package com.andrewakosta.videoPlayer;
 
+import com.andrewakosta.videoPlayer.controller.VideosView;
+import com.andrewakosta.videoPlayer.utilities.MainUtilities;
+import com.andrewakosta.videoPlayer.utilities.Properties;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -42,11 +46,12 @@ public class Main extends Application {
         } catch (IOException e) {
             System.out.println("An error has happened...!");
         }
+
+
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
-
 
     }
 
@@ -58,14 +63,17 @@ public class Main extends Application {
         File file = directoryChooser.showDialog(stage);
 
         if(file != null ){
-            System.out.println(file.getPath());
+            Properties.setProperty("pathVideos",file.getPath());
             seeker.setText(file.getPath());
         }else {
             System.out.println("Something was wrong");
         }
     }
 
-    public void goToVideosView(MouseEvent mouseEvent) {
+    public void goToVideosView(MouseEvent mouseEvent) throws Exception {
         gridPaneMain.getChildren().clear();
+        VideosView videosView = new VideosView();
+        videosView.showAllVideosFromAnyDirectory(gridPaneMain);
+
     }
 }
