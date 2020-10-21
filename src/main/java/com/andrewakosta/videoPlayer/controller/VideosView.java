@@ -88,9 +88,13 @@ public class VideosView  {
     }
 
     void playVideo(String video){
-        Player player = new Player(video);
-        Stage stage = new Stage();
         try {
+
+            File file = new File(Properties.getProperty("pathVideos")+"/"+video);
+            Properties.map.put("currentVideo",file.toURI().toString());
+            System.out.println(Properties.map.get("currentVideo"));
+            Player player = new Player();
+            Stage stage = new Stage();
             player.start(stage);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

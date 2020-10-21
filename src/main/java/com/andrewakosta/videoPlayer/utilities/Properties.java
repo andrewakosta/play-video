@@ -1,9 +1,14 @@
 package com.andrewakosta.videoPlayer.utilities;
 
+import javafx.scene.media.MediaPlayer;
+
 import java.util.HashMap;
 
 
 public class Properties {
+    /*Media pLayer Objects*/
+    public  static HashMap<String, MediaPlayer> mediaPlayerHashMap = new HashMap<String, javafx.scene.media.MediaPlayer>();
+    /*Text Properties*/
     public static  HashMap<String,String> map = new HashMap<String,String>();
 
     public  static  String getProperty(String property){
