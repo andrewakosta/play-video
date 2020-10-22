@@ -7,18 +7,29 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 
 import java.io.File;
 
 import java.util.ArrayList;
 
+/**
+ * @author  Andres Acosta
+ * is in charge of show the videso .mp4 on a directory
+ * */
 public class VideosView  {
+
     //Videos Directory
     String location = Properties.getProperty("pathVideos");
+
     /**
+     * @author Andres Acosta
+     * @description is in charge of show videos on a gridPane which it received by the parameter
+     * @return  GridPane - a gridPane with all videos on x location
+     * @param  gridPane - the gridPane which will be use to show the videos.
      *
-     */
+     **/
     public GridPane showAllVideosFromAnyDirectory(GridPane gridPane){
 
         gridPane = removeRowsAndColumns(gridPane);
@@ -38,6 +49,9 @@ public class VideosView  {
         return gridPane;
     }
 
+    /**
+     * Filter all mp4 videos of a directory
+     * */
     ArrayList<String> getAllVideoOfOneDirectory(){
 
         ArrayList<String> files = new ArrayList<String>();
@@ -57,6 +71,9 @@ public class VideosView  {
             return files;
         }
     }
+    /**
+     * Reset all rows and columns od a gridPane
+     * */
     GridPane removeRowsAndColumns(GridPane gridPane){
         while(gridPane.getRowConstraints().size() > 0){
             gridPane.getRowConstraints().remove(0);
@@ -71,7 +88,9 @@ public class VideosView  {
         gridPane.setPrefSize(1200, 1200);
         return  gridPane;
     }
-
+   /**
+    * Customize a pane to individual view of a video
+    * */
     Pane getPaneCustomized(String videoName){
         int paneSize = 90;
         Pane pane = new Pane();
@@ -80,6 +99,30 @@ public class VideosView  {
         pane.setPrefSize(paneSize, paneSize);
         pane.getChildren().add(new Label(videoName));
         pane.getStyleClass().add("video-pane");
+        pane.setOnMouseClicked(event -> {
+            playVideo(videoName);
+        });
         return  pane;
+    }
+    /**
+     * @author Andres Acosta
+     * is in charge of call a video player an send it a video to be reproduced
+     *
+     * */
+    void playVideo(String video){
+        try {
+            File file = new File(Properties.getProperty("pathVideos")+"/"+video);
+            Properties.map.put("currentVideo",file.toURI().toString());
+            System.out.println(Properties.map.get("currentVideo"));
+            Player player = new Player();
+            Stage stage = new Stage();
+            player.start(stage);
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText(e.getMessage());
+            System.out.println(e.getMessage());
+            alert.showAndWait();
+        }
     }
 }

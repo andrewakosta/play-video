@@ -1,0 +1,14 @@
+#progressBar .thumb {
+    -fx-background-color: #1b0330;
+}
+#progressBar .track {
+    -fx-background-color: #6d1eb3;
+}
+
+.btn{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+}
+.btn:hover{
+    -fx-background-color:#1b0330;
+}

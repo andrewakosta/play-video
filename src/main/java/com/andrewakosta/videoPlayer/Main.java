@@ -1,7 +1,6 @@
 package com.andrewakosta.videoPlayer;
 
 import com.andrewakosta.videoPlayer.controller.VideosView;
-import com.andrewakosta.videoPlayer.utilities.MainUtilities;
 import com.andrewakosta.videoPlayer.utilities.Properties;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -9,8 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
+
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -21,6 +19,10 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * @author Andres Acosta
+ * is in charge of genrate the first view to choose teh directory of video files
+ * */
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -33,6 +35,10 @@ public class Main extends Application {
     @FXML
     private GridPane gridPaneMain;
 
+
+    /**
+     * Main method to create a window.
+     * */
     @Override
     public void start(Stage primaryStage) {
 
@@ -56,6 +62,10 @@ public class Main extends Application {
     }
 
 
+    /**
+     * Generate instance  of DirectChooser class to get a directory of videos and then set the value in a hasMap
+     *
+     * */
     public void handleBtnSearchVideos(MouseEvent mouseEvent) {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Select Videos Folder");
@@ -70,6 +80,9 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Generate a new instance of videos view to show them
+     * */
     public void goToVideosView(MouseEvent mouseEvent) throws Exception {
         gridPaneMain.getChildren().clear();
         VideosView videosView = new VideosView();
