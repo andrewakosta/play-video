@@ -10,12 +10,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 
 
-
+/**
+ * @Author Andres Acosta
+ * @description is in charge of generate the new window tho de player
+ * */
 public class Player extends Application {
 
 
@@ -41,7 +43,7 @@ public class Player extends Application {
                 Properties.mediaPlayerHashMap.get("currentMediaPlayer").stop();
 
             });
-
+            scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }catch(Exception e){

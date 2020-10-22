@@ -9,7 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<BorderPane  fx:id="borderPaneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewakosta.videoPlayer.controller.MediaPlayerController">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane fx:id="borderPaneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewakosta.videoPlayer.controller.MediaPlayerController">
     <center>
         <StackPane fx:id="pane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
@@ -19,51 +21,32 @@
                         <Slider fx:id="progressBar" />
                         <HBox alignment="BOTTOM_CENTER" maxHeight="40.0" prefHeight="30.0">
                             <children>
-                                <Button fx:id="setPoint" onAction="#setPointOnCurrentTime" mnemonicParsing="false"  text="SetPoint">
+                                <Button fx:id="btnSetPointOnCurrentTime" styleClass="btn" onAction="#setPointOnCurrentTime" mnemonicParsing="false"  text="">
                                     <HBox.margin>
                                         <Insets bottom="7.0" right="7.0" />
                                     </HBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#playVideo" text="Play">
+                                <Button fx:id="btnPreviousVideo" mnemonicParsing="false" styleClass="btn" onAction="#previousVideo" text="">
                                     <HBox.margin>
                                         <Insets bottom="7.0" right="7.0" />
                                     </HBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#pauseVideo" text="Pause">
+                                <Button fx:id="btnPause" mnemonicParsing="false" styleClass="btn" onAction="#pauseVideo" text="">
                                     <HBox.margin>
                                         <Insets bottom="7.0" right="7.0" />
                                     </HBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#navigateThroughThePoints" text=":)">
+
+                                <Button fx:id="btnNextVideo" mnemonicParsing="false" styleClass="btn" onAction="#goToNextVideo" text="">
                                     <HBox.margin>
                                         <Insets bottom="7.0" right="7.0" />
                                     </HBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#furtherSlowDownVideo" text="&lt;&lt;&lt;">
+                                <Button fx:id="btnNavigate" mnemonicParsing="false" styleClass="btn" onAction="#navigateThroughThePoints" text="">
                                     <HBox.margin>
                                         <Insets bottom="7.0" right="7.0" />
                                     </HBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#back5" text="-5s">
-                                    <HBox.margin>
-                                        <Insets bottom="7.0" right="7.0" />
-                                    </HBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#skip5" text="+5s">
-                                    <HBox.margin>
-                                        <Insets bottom="7.0" right="7.0" />
-                                    </HBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#furtherSpeedUpVideo" text="&gt;&gt;&gt;">
-                                    <HBox.margin>
-                                        <Insets bottom="7.0" right="7.0" />
-                                    </HBox.margin>
-                                </Button>
-                                <Slider fx:id="volumeSlider">
-                                    <HBox.margin>
-                                        <Insets bottom="10.0" />
-                                    </HBox.margin>
-                                </Slider>
                             </children>
                         </HBox>
                     </children>
